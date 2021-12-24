@@ -1,9 +1,10 @@
+#include <iostream>
 #include "gtest-1.8.1/gtest.h"
 #include "../src/headers/map.h"
-#include <iostream>
 using namespace std;
 /**/
 
+#if TESTS
 TEST(testMap, testCellType){
 	std::array<std::string, MAP_HEIGHT> testMap = {
     "############################",
@@ -38,8 +39,9 @@ TEST(testMap, testCellType){
     "#......................... #",
     "############################"
 };
-	Map mapu(testMap);
-
+    sf::Texture texture;
+    texture.loadFromFile("../resources/sprites/map.png");
+	Map mapu(testMap, &texture, 16);
 	EXPECT_EQ(mapu.cellType(Coord(0,0)), Cell::WALL);
 	EXPECT_EQ(mapu.cellType(Coord(1,1)), Cell::PILL);
 	EXPECT_EQ(mapu.cellType(Coord(1,5)), Cell::PILL);
@@ -49,3 +51,4 @@ TEST(testMap, testCellType){
 	EXPECT_EQ(mapu.cellType(Coord(30,27)), Cell::WALL);
 
 }
+#endif //TESTS

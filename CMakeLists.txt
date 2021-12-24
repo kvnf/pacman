@@ -15,6 +15,8 @@ file(GLOB SOURCE_FILES src/*.cpp src/headers/*.h src/*.hpp)
 
 add_executable(runTests ${SOURCE_FILES} tests/tests.cpp)
 add_executable(main ${SOURCE_FILES} src/main.cpp)
+target_compile_definitions(main PUBLIC MAIN)
+target_compile_definitions(runTests PUBLIC TESTS)
 
 target_link_libraries(runTests gtest gtest_main -lsfml-graphics -lsfml-window -lsfml-system -lstdc++fs)
 target_link_libraries(main -lsfml-graphics -lsfml-window -lsfml-system -lstdc++fs)
