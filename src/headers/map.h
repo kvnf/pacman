@@ -22,7 +22,7 @@ private:
     std::map<Coord, Cell> map_;
     sf::Texture* texture_;
     Nat tileSize_;
-    Nat pillCount_; // if == 0 level cleared.
+    Nat pillCount_; // if == 0 level cleared. 
 
 };
 

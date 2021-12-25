@@ -6,7 +6,7 @@ Map::Map(std::array<std::string, MAP_HEIGHT> m, sf::Texture* texture, Nat tileSi
     this->tileSize_ = tileSize;
     this->uvRect.width = this->tileSize_;
     this->uvRect.height = this->tileSize_;
-
+ 
     for (int i = 0; i < MAP_HEIGHT; i++)
     {
         for (int j = 0; j < MAP_WIDTH; j++)
@@ -36,6 +36,8 @@ Map::Map(std::array<std::string, MAP_HEIGHT> m, sf::Texture* texture, Nat tileSi
     }
 }
 
+ 
+
 /*draws entire map at game start only*/
 void Map::draw(sf::RenderWindow& window)
 {
@@ -50,32 +52,40 @@ void Map::draw(sf::RenderWindow& window)
             {
             case Cell::PILL:
                 uvRect.top = uvRect.height;
-                uvRect.left = 1;
-                //tile.setFillColor(sf::Color::Green);
-                break;
-            case Cell::WALL:
-                uvRect.top = 0;
                 uvRect.left = 0;
-                //tile.setFillColor(sf::Color::Black);
+                tile.setFillColor(sf::Color::Green);
                 break;
             case Cell::POWER_UP:
                 uvRect.top = uvRect.height;
                 uvRect.left = uvRect.width;
-                // tile.setFillColor(sf::Color::Red);
+                tile.setFillColor(sf::Color::Red);
                 break;
-            case Cell::DOOR:
+            case Cell::FLOOR:
                 uvRect.top = uvRect.height;
-                uvRect.left = uvRect.width*2;
-                // tile.setFillColor(sf::Color::Yellow);
+                uvRect.left = uvRect.width * 3;
+                tile.setFillColor(sf::Color::Green);
                 break;
             case Cell::TUNNEL:
                 uvRect.top = uvRect.height;
+                uvRect.left = uvRect.width * 3;
+                tile.setFillColor(sf::Color::Magenta);
+                break;
+            case Cell::DOOR:
+                uvRect.top = uvRect.height;
+                uvRect.left = uvRect.width * 2;
+                tile.setFillColor(sf::Color::Yellow);
+                break;
+            case Cell::WALL:
+                uvRect.top = 0;
                 uvRect.left = 0;
-                // tile.setFillColor(sf::Color::Blue);
+                tile.setFillColor(sf::Color::Blue);
                 break;
             default:
+                uvRect.top = uvRect.height;
+                uvRect.left = uvRect.width * 3;
+                tile.setFillColor(sf::Color::Blue);
+
                 break;
-            
             }
             tile.setTextureRect(this->uvRect);
             window.draw(tile);

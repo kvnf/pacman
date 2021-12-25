@@ -5,11 +5,12 @@
 class Player
 {
 public:
-	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, const Nat sprite_size);
+	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, const Nat sprite_size, const sf::Vector2f startPos);
 	//~Player();
 	
-	void update(float deltaTime);
+	void update(float deltaTime, Direction dir);
 	void draw(sf::RenderWindow& window);
+	const sf::Vector2f playerPos() const;
 
 private:
 	sf::RectangleShape body_;

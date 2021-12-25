@@ -11,6 +11,7 @@ Animation::Animation(sf::Texture* texture, sf::Vector2u imageCount, float switch
 	uvRect.height = texture->getSize().y / float(imageCount.y);
 }
 
+
 void Animation::update(unsigned int row, float deltaTime, Direction dir)
 {
 	// side animation in row 0, up-down animation in row 1

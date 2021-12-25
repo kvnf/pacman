@@ -1,8 +1,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
-
 #include <SFML/Graphics.hpp>
-#include "types.h"
+#include "globals.hpp"
 
 class Animation
 {
