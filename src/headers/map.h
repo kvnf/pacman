@@ -1,11 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include <SFML/Graphics.hpp> // map does not requiere animation.h
-#include "types.h"
-
-
-static const Nat MAP_HEIGHT = 31;
-static const Nat MAP_WIDTH = 28;
+#include "globals.hpp"
 
 class Map
 {
@@ -17,6 +13,7 @@ public:
     Cell cellType(Coord);
     Nat tileSize();
    	sf::IntRect uvRect;
+    Coord startPos;
 
 private:
     std::map<Coord, Cell> map_;

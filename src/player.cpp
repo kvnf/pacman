@@ -36,10 +36,8 @@ void Player::update(float deltaTime, Direction dir)
 		default:
 			break;
 		}
-
 		this->animation_.update(row_, deltaTime, dir_);
 		body_.setTextureRect(animation_.uvRect);
-		
 }
 
 void Player::draw(sf::RenderWindow& window)
@@ -51,3 +49,10 @@ const sf::Vector2f Player::playerPos() const
 {
 	return this->body_.getPosition();
 }
+
+#if TESTS
+void Player::setPlayerPos(sf::Vector2f position)
+{
+    this->body_.setPosition(position);
+}
+#endif /*TESTS*/

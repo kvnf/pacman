@@ -10,7 +10,7 @@ SET(BUILD_GTEST ON)
 add_library(gtest STATIC tests/gtest-1.8.1/gtest-all.cc)
 add_library(gtest_main STATIC tests/gtest-1.8.1/gtest_main.cc)
 
-file(GLOB SOURCE_FILES src/*.cpp src/headers/*.h src/*.hpp)
+file(GLOB SOURCE_FILES src/*.cpp src/utils/*.cpp src/headers/*.h src/headers/*.hpp src/*.hpp)
 
 
 add_executable(runTests ${SOURCE_FILES} tests/tests.cpp)

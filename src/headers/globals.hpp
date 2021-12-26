@@ -8,4 +8,6 @@ static const unsigned int TILE_SIZE =  16;
 static const unsigned int SCREEN_SIZE = 512;
 static const float VIEW_HEIGHT = 512;
 
+static const Nat MAP_HEIGHT = 31;
+static const Nat MAP_WIDTH = 28;
 #endif

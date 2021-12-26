@@ -11,6 +11,9 @@ public:
 	void update(float deltaTime, Direction dir);
 	void draw(sf::RenderWindow& window);
 	const sf::Vector2f playerPos() const;
+	#if TESTS
+	void setPlayerPos(sf::Vector2f position);
+	#endif
 
 private:
 	sf::RectangleShape body_;

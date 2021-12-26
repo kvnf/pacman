@@ -6,7 +6,7 @@ Map::Map(std::array<std::string, MAP_HEIGHT> m, sf::Texture* texture, Nat tileSi
     this->tileSize_ = tileSize;
     this->uvRect.width = this->tileSize_;
     this->uvRect.height = this->tileSize_;
- 
+    this->startPos;
     for (int i = 0; i < MAP_HEIGHT; i++)
     {
         for (int j = 0; j < MAP_WIDTH; j++)
@@ -28,6 +28,9 @@ Map::Map(std::array<std::string, MAP_HEIGHT> m, sf::Texture* texture, Nat tileSi
             case '=':
                 this->map_[Coord(i,j)] = Cell::DOOR;
                 break;
+            case 'p':
+                this->map_[Coord(i,j)] = Cell::FLOOR;
+                this->startPos = Coord(i,j);
             default:
                 this->map_[Coord(i,j)] = Cell::FLOOR;
                 break;
@@ -41,12 +44,12 @@ Map::Map(std::array<std::string, MAP_HEIGHT> m, sf::Texture* texture, Nat tileSi
 /*draws entire map at game start only*/
 void Map::draw(sf::RenderWindow& window)
 {
-    sf::RectangleShape tile(sf::Vector2f(this->tileSize(), this->tileSize()));
+    sf::RectangleShape tile(sf::Vector2f(TILE_SIZE, TILE_SIZE));
     tile.setTexture(this->texture_);
     for (Nat i = 0; i < MAP_HEIGHT; i++){
         for (Nat j = 0; j < MAP_WIDTH; j++){
             //move rectangle to curr coord
-            tile.setPosition(static_cast<float>(j * tileSize()), static_cast<float>(i * tileSize()));
+            tile.setPosition(static_cast<float>(j * TILE_SIZE), static_cast<float>(i * TILE_SIZE));
 
             switch (this->cellType(Coord(i,j)))
             {
@@ -99,7 +102,3 @@ Cell Map::cellType(Coord coord)
     return this->map_[coord];
 }
 
-Nat Map::tileSize()
-{
-    return this->tileSize_;
-}

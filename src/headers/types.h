@@ -15,4 +15,8 @@ enum  Direction {
 	UP, DOWN, LEFT,	RIGHT
 };
 
+enum Agent {
+	PACMAN, BLINKY, PINKY, INKY, CLYDE
+};
+
 #endif 
