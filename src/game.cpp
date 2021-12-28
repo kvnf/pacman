@@ -50,20 +50,20 @@ bool Game::canMove_(Agent agent, Direction dir)
     switch (dir)
     {
     case Direction::UP:
-        dest.first = mapPosition.first;
-        dest.second = mapPosition.second - 1;
+        dest.first = mapPosition.first - 1;
+        dest.second = mapPosition.second;
         break;
     case Direction::DOWN:
-        dest.first = mapPosition.first;
-        dest.second = mapPosition.second + 1;
-        break;
-    case Direction::LEFT:
-        dest.first = mapPosition.first - 1;
-        dest.second = mapPosition.second ;
-        break;
-    case Direction::RIGHT:
         dest.first = mapPosition.first + 1;
         dest.second = mapPosition.second;
+        break;
+    case Direction::LEFT:
+        dest.second = mapPosition.second - 1;
+        dest.first = mapPosition.first;
+        break;
+    case Direction::RIGHT:
+        dest.second = mapPosition.second + 1;
+        dest.first = mapPosition.first;
         break;
     default:
         break;

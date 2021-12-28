@@ -114,8 +114,8 @@ TEST(testGame, testStartPosition)
     Game game("../resources/maps/map-01", textures);
     Coord expectedStart(17, 14);
     sf::Vector2f start = game.agentPos(Agent::PACMAN);
-    Nat posX = start.x / 16;
-    Nat posY = start.y / 16;
+    Nat posX = start.y / 16;
+    Nat posY = start.x / 16;
     EXPECT_EQ(Coord(posX, posY), expectedStart);
 }
 
@@ -153,8 +153,8 @@ TEST(testGame, testCanMove)
     sf::Vector2f dest = map2Screen(Coord(1,4));
     game.setAgentPos(PACMAN, dest);
     
-    EXPECT_EQ(game.agentPos(PACMAN).x, 16);
-    EXPECT_EQ(game.agentPos(PACMAN).y, 4*16);
+    EXPECT_EQ(game.agentPos(PACMAN).x, 4*16);
+    EXPECT_EQ(game.agentPos(PACMAN).y, 16);
     
     game.moveAgent(PACMAN, 1, LEFT);
     game.moveAgent(PACMAN, 1, LEFT);
@@ -164,8 +164,8 @@ TEST(testGame, testCanMove)
     game.moveAgent(PACMAN, 1, UP);
     game.moveAgent(PACMAN, 1, UP);
     game.moveAgent(PACMAN, 1, UP);
-    EXPECT_LT(game.agentPos(PACMAN).y, 4*16);
-    EXPECT_EQ(game.agentPos(PACMAN).x, 16);
+    EXPECT_EQ(game.agentPos(PACMAN).y, 16);
+    EXPECT_LT(game.agentPos(PACMAN).x, 4*16);
 }
 
 #endif /*TESTS*/

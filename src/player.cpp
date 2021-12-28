@@ -7,7 +7,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	this->row_ = 0;
 	this->dir_ = RIGHT;
 	body_.setSize(sf::Vector2f(sprite_size, sprite_size));
-	body_.setOrigin(sprite_size/2, sprite_size/2);
+	//body_.setOrigin(0, 0);
 	body_.setTexture(texture);	
 	body_.setPosition(startPos);
 }
@@ -26,11 +26,11 @@ void Player::update(float deltaTime, Direction dir)
 			break;
 		case Direction::UP:
 			this->body_.move(0.0f, -speed_ * deltaTime);
-			this->dir_ = UP;	
+			this->dir_ = UP;
 			break;
 		case Direction::DOWN:
 			this->body_.move(0.0f, speed_ * deltaTime);
-			this->dir_ = DOWN;	
+			this->dir_ = DOWN;
 			break;
 		
 		default:

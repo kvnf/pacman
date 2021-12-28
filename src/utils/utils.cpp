@@ -20,8 +20,8 @@ sf::Vector2f map2Screen(const Coord coord)
     of the tile.
     */
     sf::Vector2f screenPos(0,0);
-    screenPos.x = coord.first * TILE_SIZE;
-    screenPos.y = coord.second * TILE_SIZE;
+    screenPos.y = coord.first * TILE_SIZE;
+    screenPos.x = coord.second * TILE_SIZE;
     
     return screenPos;
 }
@@ -30,9 +30,8 @@ Coord screen2Map(const sf::Vector2f pixel)
 {
     /*returns the Coord / tile where given pixel is located*/ 
     Coord mapCoord(0,0);
-    mapCoord.first = pixel.x / TILE_SIZE;
-    mapCoord.second = pixel.y / TILE_SIZE;
+    mapCoord.first = pixel.y / TILE_SIZE;
+    mapCoord.second = pixel.x / TILE_SIZE;
     
     return mapCoord;     
 }
-
